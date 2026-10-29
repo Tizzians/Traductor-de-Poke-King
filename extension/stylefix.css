@@ -1,0 +1,97 @@
+.pet-dev { /* Make sure you use the website's actual class name! */
+    /* Resizing Logic */
+    height: 134.5px;
+    min-height: 100px;
+
+    /* The Crucial Fix for Click Interception */
+    overflow: hidden;
+
+    /* Spacing */
+    padding: 0;
+    /*
+    box-sizing: border-box;*/
+}
+
+/*
+.pokeking-translated {
+    padding-top: 0px;
+    padding-left: 0; 
+    padding-right: 0;
+    padding-bottom: 0;
+}
+*/
+
+
+/* Hide the "important info" message */
+.pet-dev > div > div[style*="top: -15px; right: 0px;"] {
+    display: none !important;
+}
+
+.pet-dev h3 .pokeking-translated {
+    color: #32CD32 !important; /* Vibrant Lime Green text */
+    font-size: 0.8em !important; /* Adjust font size for longer names */
+
+    /* Strong black outline for readability on varied backgrounds */
+    text-shadow:
+        -1px -1px 0 #000,  /* Top-left */
+        1px -1px 0 #000,   /* Top-right */
+        -1px 1px 0 #000,   /* Bottom-left */
+        1px 1px 0 #000,    /* Bottom-right */
+        -2px 0 0 #000,     /* Left */
+        2px 0 0 #000,      /* Right */
+        0 -2px 0 #000,     /* Top */
+        0 2px 0 #000;      /* Bottom */
+
+    /* Ensure the name is on top of other elements in the stacking order */
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Nombres largos en español: una sola línea, sin pisar el resto de la tarjeta */
+.pet-dev h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+.pet-dev h3 .pokeking-translated {
+    font-size: 0.72em !important;
+}
+
+/* Páginas de acceso (admin.html): texto de botones centrado */
+html.pokeking-admin button,
+html.pokeking-admin .btn,
+html.pokeking-admin input[type="submit"],
+html.pokeking-admin input[type="button"] {
+    text-align: center !important;
+}
+
+/* ===== Modo oscuro (se activa con el botón Oscuro/Claro; los colores por elemento los calcula content.js) ===== */
+html.pokeking-dark {
+    color-scheme: dark;
+}
+html.pokeking-dark,
+html.pokeking-dark body {
+    background-color: #000;
+}
+html.pokeking-dark [data-pkd-bg] { background-color: var(--pkd-bg) !important; }
+html.pokeking-dark [data-pkd-fg] { color: var(--pkd-fg) !important; }
+html.pokeking-dark [data-pkd-op] { opacity: var(--pkd-op) !important; }
+html.pokeking-dark [data-pkd-bt] { border-top-color: var(--pkd-bt) !important; }
+html.pokeking-dark [data-pkd-br] { border-right-color: var(--pkd-br) !important; }
+html.pokeking-dark [data-pkd-bb] { border-bottom-color: var(--pkd-bb) !important; }
+html.pokeking-dark [data-pkd-bl] { border-left-color: var(--pkd-bl) !important; }
+html.pokeking-dark ::placeholder {
+    color: #b0b0b0 !important;
+    opacity: 1 !important;
+}
+html.pokeking-dark hr {
+    border-color: #444 !important;
+}
+
+/* Foco visible al navegar con teclado por los botones de la extensión */
+#pokeking-buttons-container button:focus-visible {
+    outline: 2px solid #fff !important;
+    outline-offset: 2px !important;
+}

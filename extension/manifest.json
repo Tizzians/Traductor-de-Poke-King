@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Pokeking Traductor (Español)",
+  "version": "1.9.1",
+  "description": "Traductor de Poke-King en español, forzador del modo oscuro y sistema de reportes. Además te hace 5% más guapo por usarla ;)",
+  "icons": {
+    "16": "icons/slax16.png",
+    "48": "icons/slax48.png",
+    "128": "icons/slax128.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "scripting",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "*://*.pokeking.icu/*",
+    "https://compscimmo.github.io/*",
+    "https://script.google.com/*",
+    "https://script.googleusercontent.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["browser-polyfill.min.js", "background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.pokeking.icu/*"],
+      "js": ["browser-polyfill.min.js", "dictionary_es.js", "content.js"],
+      "css": [
+        "pokeking-modals.css",
+        "pokeking-buttons.css",
+        "stylefix.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected_script.js"],
+      "matches": ["*://*.pokeking.icu/*"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pokeking-traductor-es@github.com",
+      "strict_min_version": "120.0"
+    }
+  }
+}
